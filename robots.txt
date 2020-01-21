@@ -1,9 +1,0 @@
-User-agent: *
-Disallow: /img/
-Disallow: /files/
-Disallow: /notfound.html
-Allow: /index.html
-Allow: /nav.html
-Allow: /articles.html
-Allow: /aboutus.html
-Allow: /dl.html
