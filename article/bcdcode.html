@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>How to convert binary to BCD number</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/img/favicon.png">
+		<style>
+			table{
+				text-align: center;
+				border-collapse: collapse;
+			}
+			body {
+				font-family: Calibri, Verdana, Serif;
+				font-size: 20px;
+				text-align: justify;
+			}
+			footer{
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+		<center> <a href="/index.html">go to home page</a> </center>
+		<h3>BCD Coding</h3>
+		<p>
+		To write numbers in binary form, we always use certain rules. The binary-decimal code makes it possible to simplify these rules by coding one digit with 4 bits. For example, the number 420 in the binary system has the form: 110100100, and in the binary-coded decimal code: 010000100000. Apparently, when using a binary-coded decimal code, we do not need to perform extra operations to convert numbers from decimal to binary, and this will help save time in the transmission of information in low-power devices.
+		</p>
+		
+		<p>
+		There are several different weight combinations in the BCD code. They specify the kind of digit in this code. The most common of these are 8-4-2-1, 5-4-2-1, 4-2-2-1, 2-4-2-1(Also known as Aiken's code). However, now we will not consider all of them for now.
+		</p>
+		
+		<p>Let's write some numbers in BCD code:</p>
+		
+		<center>
+		<table style="width:40%">
+			<tr>
+				<th>Number</th>
+				<th>BCD Code(8-4-2-1)</th>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>0000</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>0001</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>0010</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>0011</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>0100</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>0101</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>0110</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>0111</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>1000</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>1001</td>
+			</tr>
+		</table>
+		</center>
+		
+		<p>Notice that numbers 1010-1111 is not used.</p>
+		<p>Using this table, you can easily write any number in binary-coded decimal.</p>
+		<p>Let's write number 420, 132, 548, 256 in binary and BCD to see the differenc</p>
+		
+		<center>
+		<table style="width:50%">
+			<tr>
+				<th>Decimal</th>
+				<th>Binary</th>
+				<th>BCD(8421)</th>
+			</tr>
+			<tr>
+				<td>420</td>
+				<td>110100100</td>
+				<td>010000100000</td>
+			</tr>
+			<tr>
+				<td>132</td>
+				<td>10000100</td>
+				<td>000100110010</td>
+			</tr>
+			<tr>
+				<td>548</td>
+				<td>1000100100</td>
+				<td>010101001000</td>
+			</tr>
+			<tr>
+				<td>256</td>
+				<td>100000000</td>
+				<td>001001010110</td>
+			</tr>
+		</table>
+		</center>
+		
+		<p>
+			As you can see, the number in binary form has a different length, because in the binary system it is positional. In the case of a binary coded decimal, the length of a number depends only on the number of characters. (For example, a three-digit number in a BCD will always be 12 bits in size. A two-digit number will be 1 byte in size.)
+		</p>
+		
+		<h3>BCD Addition</h3>
+		<p>
+			Like other number system in BCD arithmetical operation may be required. BCD is a numerical code which has several rules for addition. The rules are given below in three steps with an example to make the idea of BCD Addition clear. 
+		</p>
+		<p>
+			At first the given number are to be added using the rule of binary.
+		</p>
+		<center>
+			Case 1: (1010)2+(0101)2 = 1111;
+			Case 2: (0001)2+(0101)2 = 0110;
+		</center>
+		<p>
+			In second step we have to judge the result of addition. Here two cases are shown to describe the rules of BCD Addition. In case 1 the result of addition of two binary number is greater than 9, which is not valid for BCD number. But the result of addition in case 2 is less than 9, which is valid for BCD numbers.
+			If the four bit result of addition is greater than 9 and if a carry bit is present in the result then it is invalid and we have to add 6 whose binary equivalent is 0110 to the result of addition. Then the resultant that we would get will be a valid binary coded number. In case 1 the result was 1111, which is greater than 9 so we have to add 6 or 0110 to it.
+		</p>
+		<center>
+		(1111)2+(0110)2 = 0001 0101 = 15
+		</center>
+		<p>
+			As you can see the result is valid in BCD.
+			But in case 2 the result was already valid BCD, so there is no need to add 6. This is how BCD Addition could be.
+			Now a question may arrive that why 6 is being added to the addition result in case BCD Addition instead of any other numbers. It is done to skip the six invalid states of binary coded decimal i.e from 10 to 15 and again return to the BCD codes.
+		</p>
+		<hr>
+		<footer>
+			Copyright (C)N Corp. All rights reserved. Use for commercial purposes is prohibited. Copying without reference to the source is punishable.
+		</footer>
+	</body>
+</html>
