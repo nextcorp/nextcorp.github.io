@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>What is prime numbers and how to count them?</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/img/favicon.png">
+		<style>
+		   .code1 { 
+				text-align: left;
+				font-family: Consolas;
+				font-size: 14px;
+				background: #ccc; 
+				border: solid 0px black; 
+				display: inline-block;
+			}
+		   .code2 { 
+				text-align: left;
+				font-size: 14px;
+				font-family: Consolas;
+				background: #ccc; 
+				border: solid 0px black; 
+				display: inline-block;
+			}
+			body {
+				font-family: Calibri, Verdana, Serif;
+				font-size: 20px;
+				text-align: justify;
+			}
+			footer{
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<center> <a href="/index.html">go to home page</a> </center>
+		<center>
+		<h2>What is a prime number?</h2>
+		</center>
+		
+		<p align="justify">
+			<strong>A prime number</strong> is a natural number greater than 1 that has no positive divisors other than 1 and itself. A natural number greater than 1 that is not a prime number is called a composite number. For example, 5 is prime because 1 and 5 are its only positive integer factors, whereas 6 is composite because it has the divisors 2 and 3 in addition to 1 and 6.
+		</p>
+		
+		<center><img src="/img/prime-numbers.jpg" alt="Numbers from 1 to 100 with prime numbers marked"></center>
+		<p> </p>
+		<p align="center"><i>Figure 1. A list of prime numbers from 2 to 997</i></p>
+		
+		<center><img src="/img/100_sieve_finished.png" align="middle" alt="Numbers from 1 to 100 with prime numbers marked"></center>
+		<p align="center"><i>Figure 2. Numbers from 1 to 100, the primes are marked yellow. You get it?</i></p>
+		
+		<p align="justify">
+			The fundamental theorem of arithmetic establishes the central role of primes in number theory: any integer greater than 1 is either a prime itself or can be expressed as a product of primes that is unique up to ordering. The uniqueness in this theorem requires excluding 1 as a prime because one can include arbitrarily many instances of 1 in any factorization, e.g., 3, 1 · 3, 1 · 1 · 3, etc. are all valid factorizations of 3.
+		</p>
+		
+		<p align="justify">
+			There are infinitely many primes, as demonstrated by Euclid around 300 BC. No known simple formula separates prime numbers from composite numbers. However, the distribution of primes within the natural numbers in the large can be statistically modelled. The first result in that direction is the prime number theorem, proven at the end of the 19th century, which says that the probability of a randomly chosen number being prime is inversely proportional to its number of digits, that is, to its logarithm.
+		</p>
+		
+		<h3>Okay, how to represent this in Lua?</h3>
+		<p align="justify">
+			Our program will consist of two functions. The first will check whether the number entered in the function is prime. First, we check whether the number is positive. If so: If this is 1, just return the true. If this number is positive and not 1, then through the loop to check if there is a remainder from dividing by the loop counter. If this number is negative, return error message. In the second function, we will go through repeat-until loop for output prime numbers to the screen.
+		</p>
+		
+		<h4>Number check function</h4>
+		<p>
+			Let's create function that checks if entered number (as argument) is:
+		</p>
+		
+		<ul>
+			<li>Positive</li>
+			<li>If argument number one, then just return true (that is prime)</li>
+		</ul>
+		
+		<p align="justify">
+			If argument does not fit in to our requirements, we are try to find a remainder for this number.We are start count from this number to the 2 using <i>for loop</i>:
+		</p>
+			<center>
+					<div class="code1">
+					local function isPrime(num)<br>
+						&nbsp;if num <= 0 then<br>
+							&nbsp;&nbsp;print("Number must be positive and greater than zero.")<br>
+							&nbsp;&nbsp;return false<br>
+						&nbsp;elseif num == 1 then<br>
+							&nbsp;&nbsp;return true<br>
+						&nbsp;end<br>
+						&nbsp;for x = num-1,2,-1 do<br>
+							&nbsp;&nbsp;if (((num % x) == 0) and x > 1) then<br>
+								&nbsp;&nbsp;return false<br>
+							&nbsp;end<br>
+						end<br>
+					</div>
+			</center>				
+		<h4>Displaying Multiple Numbers on the Screen</h4>
+		
+			<center>
+					<div class="code2">
+					local function printPrime(howmany)<br>
+						&nbsp;local count = 1<br>
+						&nbsp;local pnum = 1<br>
+						&nbsp;repeat<br>
+							&nbsp;&nbsp;if isPrime(pnum) then<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;print(pnum)<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;pnum=pnum+1<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;count=count+1<br>
+							&nbsp;&nbsp;else<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;pnum=pnum+1<br>
+							&nbsp;&nbsp;end<br>
+						&nbsp;until(count > howmany)<br>
+					end<br>
+					</div>
+			</center>
+					
+			<p>
+				<strong>That's it!</strong> Now you can put: <i>printPrime(20)</i> to find 20 prime numbers and test this program.
+			</p>
+			<hr>
+			<footer>
+				Copyright (C)N Corp. All rights reserved. Use for commercial purposes is prohibited. Copying without reference to the source is punishable.
+			</footer>
+	</body>
+</html>
